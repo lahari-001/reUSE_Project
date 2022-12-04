@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title> chat box </title>
+</head>
+<style>
+    *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+/*    background-color: red;*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header{
+    background-color: #b2ec5d;
+    box-shadow: 0 0 2px grey;
+    position: sticky;
+    top: 0%;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    width: 1300px;
+    margin: auto;
+}
+
+.logo img{ 
+ width: 70px;
+}
+.search_box{
+    display: flex;
+    margin-left: 30px;
+}
+.search_box i{
+    background-color: black;
+    color: white;
+    padding: 14px;
+    font-size: 15px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+}
+.searchclass{
+    padding: 10px;
+    width: 400px;
+    font-size: 15px;
+    border: 2px solid black;
+    border-radius: 6px 0 0 6px;
+}
+.profile img{
+    width: 55px;
+    border-radius: 60%;
+    cursor: pointer;
+    margin-left: 55px;
+}
+.nameandimg img{
+    width: 65px;
+    border-radius: 50%;
+}
+.nameandimg p{
+    font-size: 18px;
+    font-weight: bold;
+}
+.nameandimg{
+    display: flex;
+    align-items: center;
+    margin: 10px 0 20px 0;
+}
+.dropdwon{
+    width: 250px;
+    box-shadow: 0 0 10px grey;
+    padding: 15px;
+    background-color: white;
+    display: none;
+    position: absolute;
+    top: 60px;
+    z-index: 100;
+}
+.dropdwon ul li{
+    display: flex;
+    padding: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.dropdwon ul li:hover{
+    background-color: #c7dcff;
+}
+.dropdwon ul{
+    margin-top: 20px;
+}
+.dropdwon ul li i{
+    color: black;
+    font-size: 17px;
+}
+.dropdwon ul li p{
+    margin-left: 10px;
+  font-size: 17px;
+}
+.block_div{
+    display: block;
+}
+
+
+.selling_page button{
+    margin-left: 500px;
+    border-style:solid ;
+    border-width: 5px;
+    border-top-color: #eeff1b;
+    border-left-color: #eeff1b;
+    border-right-color: #eeff1b;
+    border-bottom-color: #eeff1b;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+    background-color: white;
+    color: #008b8b;
+    display: flex;
+}
+.chat_box{
+    width: 800px;
+    margin: 20px auto;
+    border: 1px solid #d3d3d3;
+}
+
+
+
+.heading_chatbox img{
+ width: 60px;
+ border-radius: 50%;
+ margin-left: 15px;
+}
+.img_name_chat{
+    display: flex;
+    align-items: center;
+}
+.img_name_chat h2{
+    margin-left: 15px;
+}
+.heading_chatbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #d3d3d3;
+    padding: 4px 0;
+}
+.heading_chatbox i{
+    margin-right: 15px;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.heading_chatbox i:hover{
+    margin-right: 13px;
+    font-size: 21px;
+}
+
+
+
+
+.see_chat{
+    background-color: #ebeeef;
+    height: 500px;
+    border: 1px solid #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#message{
+    border-radius: 6px;
+    border: 1px solid grey;
+    background-color: white;
+    margin: 20px;
+    padding: 8px 10px;
+    font-size: 15px;
+    display: none;
+}
+
+
+
+.send_message input{
+    width: 100%;
+    padding: 15px 16px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+.send_message i{
+    color: white;
+    background-color: black;
+    padding: 12px;
+    font-size: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.send_message{
+    display: flex;
+    justify-content: space-between;
+}
+#demo{
+    display: none;
+}
+</style>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPjBnTKshB8dEAkt3lfLzKQfytFdFU2yZfCv8T7K6vfUd6ljR-JaMbKMg7DgN7FxZQkZ8&usqp=CAU">
+            <div class="search_box">
+                <input type="text" class="searchclass" id="searchid" placeholder="Search">
+                <p> <i class="fa-solid fa-magnifying-glass"></i> </p>
+            </div>
+
+            <div class="profilePic">
+                <div class="profile" id="profile_id">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLKwZUVDvJkVVOhNtdZ2wFeMI5SX5jUpa_PtdflboMRPeVCrPLtbEVu6RFTrxeDnZ-gFo&usqp=CAU">
+                </div>
+
+                <div class="dropdwon" id="gropdwonid">
+                    <div class="nameandimg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLKwZUVDvJkVVOhNtdZ2wFeMI5SX5jUpa_PtdflboMRPeVCrPLtbEVu6RFTrxeDnZ-gFo&usqp=CAU">
+                        <p><i> Lahari</i> </p>
+                    </div>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-user"></i>
+                            <p>My Account</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-box"></i>
+                            <p>My Orders</p>
+                        </li>
+                        <hr>
+                        <li>
+                            <i class="fa-regular fa-circle-question"></i>
+                            <p>Help</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-gear"></i>
+                            <p>Setting</p>
+                        </li>
+                        <hr>
+                        <li>
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <p>Log Out</p>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="selling_page">
+                <button> <i class="fa-solid fa-plus"></i>
+                    <p>POST</p>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <!---====chatbox======----->
+    <div class="chat_box">
+
+        <div class="heading_chatbox">
+            <div class="img_name_chat">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT60MyBMkcLfLBsjr8HyLmjKrCiPyFzyA-4Q&usqp=CAU">
+                <h2> Seller 1 </h2>
+            </div>
+            <i class="fa-solid fa-x"></i>
+        </div>
+
+        <div class="see_chat">
+            <h3 id="message"> </h3>
+        </div>
+
+        <div class="send_message">
+            <input type="text" placeholder="Type a message" id="text_message">
+            <input type="text" placeholder="Type a message" id="demo">
+            <i class="fa-solid fa-paper-plane" id="sand_icon"></i>
+        </div>
+
+
+    </div>
+</body>
+<script>
+    let profile_id = document.getElementById('profile_id');
+        let gropdwonid = document.getElementById('gropdwonid');
+
+        profile_id.addEventListener('click', () => {
+            gropdwonid.classList.toggle('block_div')
+        });
+         let sand_icon = document.getElementById('sand_icon');
+        let message = document.getElementById('message');
+        let text_message = document.getElementById('text_message');
+        let demo = document.getElementById('demo');
+
+
+        sand_icon.addEventListener('click', () => {
+            message.innerHTML = text_message.value;
+            message.style = 'display: block';
+            text_message.value = demo.value
+        })
+</script>
+</html>
